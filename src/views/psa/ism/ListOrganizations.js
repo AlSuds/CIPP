@@ -8,14 +8,14 @@ import {
   faEdit,
   faEllipsisV,
   faExclamationTriangle,
-  faCirclePlus,
-  faCircleCheck,
-  faCircleRadiation,
+  faPlusCircle,
+  faCheckCircle,
+  faRadiationCircle,
   faSpinner,
-  faCirclePlay,
-  faCirclePause,
-  faCircleStop,
-  faCircleQuestion,
+  faPlayCircle,
+  faPauseCircle,
+  faStopCircle,
+  faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import { CellTip, CellTipIcon } from 'src/components/tables'
