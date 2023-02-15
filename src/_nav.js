@@ -19,7 +19,14 @@ import {
   faUserShield,
   faEnvelope,
   faExternalLinkSquareAlt,
-  faUtensilSpoon,
+  faPlusCircle,
+  faCheckCircle,
+  faRadiationCircle,
+  faSpinner,
+  faPlayCircle,
+  faPauseCircle,
+  faStopCircle,
+  faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons'
 
 const _nav = [
@@ -669,233 +676,375 @@ const _nav = [
       },
     ],
   },
-  // begin IT Services section
+  /* ITSM Dev use of Icons:
+  faPlusCircle          Expand element
+  faCheckCircle         Active
+  faRadiationCircle     Broken
+  faSpinner             Testing (Pre-Release Active)
+  faPlayCircle          Development underway
+  faPauseCircle         Development next
+  faStopCircle          Development unscheduled
+  faQuestionCircle      Design stage
+  faCircleExclamation   Design unscheduled
+  */
   {
     component: CNavTitle,
-    name: 'Other ITSM Integrations',
-    icon: <FontAwesomeIcon icon={faUtensilSpoon} className="nav-icon" />,
+    name: 'PSA [ISM] - Tickets & Assets',
   },
   {
     component: CNavGroup,
-    name: 'ISM [PSA tool]',
-    section: 'Other ITSM Integrations',
-    to: '/itsm/psa',
-    icon: <FontAwesomeIcon icon={faExternalLinkSquareAlt} className="nav-icon" />,
+    name: 'Organizations',
+    section: 'PSA [ISM] - Tickets & Assets',
+    to: '/psa/ism/orgs',
+    icon: <FontAwesomeIcon icon={faPlusCircle} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'All Organizations',
-        to: '/itsm/psa/list-organizations',
+        name: 'List Organizations',
+        to: '/psa/ism/orgs/list-organizations',
+        icon: <FontAwesomeIcon icon={faSpinner} className="nav-icon" />,
       },
       {
         component: CNavItem,
-        name: 'Computers',
-        to: '/itsm/psa/list-computers',
+        name: 'Alerts Wizard',
+        to: '/psa/ism/orgs/alerts-wizard',
+        icon: <FontAwesomeIcon icon={faPauseCircle} className="nav-icon" />,
       },
       {
         component: CNavItem,
-        name: 'Servers',
-        to: '/itsm/psa/list-servers',
-      },
-      {
-        component: CNavItem,
-        name: 'Users',
-        to: '/itsm/psa/list-users',
-      },
-      {
-        component: CNavItem,
-        name: 'Requests',
-        to: '/itsm/psa/list-requests',
-      },
-      {
-        component: CNavItem,
-        name: 'Incidents',
-        to: '/itsm/psa/list-incidents',
-      },
-      {
-        component: CNavItem,
-        name: 'Rpt - Organizations.NoAlias.NoAddress.NoEmail.NoMsolTenantId.etc',
-        to: '/itsm/psa/report-computers-remediations',
-        icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
-      },
-      {
-        component: CNavItem,
-        name: 'Rpt - Computers.DefaultOrg.NoOwner.OldLogin.OldWU.OldSoeApps.NoAV.OldAV',
-        to: '/itsm/psa/report-computers-remediations',
-        icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
-      },
-      {
-        component: CNavItem,
-        name: 'Rpt - Servers.DefaultOrg.OldWU.UserApps.MSO.NoAV.OldAV',
-        to: '/itsm/psa/report-servers-remediations',
-        icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
-      },
-      {
-        component: CNavItem,
-        name: 'Rpt - Users.ServiceAcctWithMSO.OldLogin.NoMobile.NoOdfb',
-        to: '/itsm/psa/report-users-remediations',
-        icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
+        name: 'List Alerts',
+        // notes: NoOrgType, NoOrgStatus, NoOrgEmail, NoOrgGoLive, NoMaintenanceWindow, MissingLocationInfo, MissingKmsId, MissingComId, MissingRmmId, etc.
+        to: '/psa/ism/orgs/list-alerts',
+        icon: <FontAwesomeIcon icon={faPauseCircle} className="nav-icon" />,
       },
     ],
   },
   {
     component: CNavGroup,
+    name: 'Endpoints',
+    section: 'PSA [ISM] - Tickets & Assets',
+    to: '/psa/ism/endpoints',
+    icon: <FontAwesomeIcon icon={faPlusCircle} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'List Computers',
+        //notes: will need OffCanvas wizards for 'Manually Add Unmanaged CMDB items' & 'Manually Remove Unmanaged CMDB items' (i.e. computers not in RMM, so need to do manually in PSA)
+        to: '/psa/ism/endpoints/list-computers',
+        icon: <FontAwesomeIcon icon={faSpinner} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'List Servers',
+        to: '/psa/ism/endpoints/list-servers',
+        icon: <FontAwesomeIcon icon={faPauseCircle} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'List BYODs',
+        to: '/psa/ism/endpoints/list-byods',
+        icon: <FontAwesomeIcon icon={faCircleExclamation} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Alerts Wizard',
+        to: '/psa/ism/endpoints/alerts-wizard',
+        icon: <FontAwesomeIcon icon={faPauseCircle} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'List Alerts',
+        // notes: NoRmmMatch, NoOwner, NoOrg, NamingConvention, OldLogin, OldUpdates, OldSoeApps, Sec, Warranties, etc.
+        to: '/psa/ism/endpoints/list-alerts',
+        icon: <FontAwesomeIcon icon={faPauseCircle} className="nav-icon" />,
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Users',
+    section: 'PSA [ISM] - Tickets & Assets',
+    to: '/psa/ism/endpoints',
+    icon: <FontAwesomeIcon icon={faPlusCircle} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'List Users',
+        // notes: will also have OffCanvas wizards for 'Manually Add Unmanaged Users' & 'Disable Unmanaged Users' (i.e. users are not in COM/MSOL, so need to do manually in PSA)
+        to: '/psa/ism/endpoints/list-users',
+        icon: <FontAwesomeIcon icon={faSpinner} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Alerts Wizard',
+        to: '/psa/ism/endpoints/alerts-wizard',
+        icon: <FontAwesomeIcon icon={faPauseCircle} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'List Alerts',
+        // notes: NoComMatch, NoOrg, NoMFA, OldLogin, Licenses, etc.
+        to: '/psa/ism/endpoints/list-alerts',
+        icon: <FontAwesomeIcon icon={faPauseCircle} className="nav-icon" />,
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Network Infrastructure',
+    section: 'PSA [ISM] - Tickets & Assets',
+    to: '/psa/ism/nwi',
+    //note: use same OffCanvas wizards for 'Manually Add Unmanaged CMDB items' & 'Manually Remove Unmanaged CMDB items'
+    icon: <FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'List Printers',
+        // notes: 1. use OffCanvas Alerts Wizard and List Alerts (neater), 2. track: NamingConvention, NoPwdLoginInfo, NoPrinterLogic, NoDiscoveryMatch, NoSNMPv3, MissingLocationInfo, MissingKmsLink(s), etc.
+        to: '/psa/ism/nwi/list-printers',
+        icon: <FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Routers & Switches',
+        // notes: 1. use OffCanvas Alerts Wizard and List Alerts (neater), 2. track: NamingConvention, NoPwdLoginInfo, UnsupportedVendor, NoDiscoveryMatch, NoSNMPv3, OldVersion, MissingLocationInfo, MissingKmsLink(s), NoMaintenanceWindow, etc.
+        to: '/psa/ism/nwi/list-routersswitches',
+        icon: <FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Wireless APs',
+        // notes: 1. use OffCanvas Alerts Wizard and List Alerts (neater), 2. track: NamingConvention, NoPwdLoginInfo, UnsupportedVendor, NoDiscoveryMatch, NoSNMPv3, OldVersion, MissingLocationInfo, MissingKmsLink(s), NoMaintenanceWindow, etc.
+        to: '/psa/ism/nwi/list-waps',
+        icon: <FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Other NWI',
+        // notes: (for example ISP NWI) 1. use OffCanvas Alerts Wizard and List Alerts (neater), 2. track: MissingCiRecord, MissingCiInfo, MissingLocationInfo, MissingKmsLink(s), etc.
+        to: '/psa/ism/nwi/list-othernwi',
+        icon: <FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" />,
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Ticket Management',
+    section: 'PSA [ISM] - Tickets & Assets',
+    to: '/psa/ism/tickets',
+    icon: <FontAwesomeIcon icon={faCircleExclamation} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Requests',
+        to: '/psa/ism/tickets/list-requests',
+        icon: <FontAwesomeIcon icon={faCircleExclamation} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Alerts Wizard',
+        to: '/psa/ism/tickets/requests-alerts-wizard',
+        icon: <FontAwesomeIcon icon={faCircleExclamation} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'List Alerts',
+        // notes: SltResponse, SltResolution, NextActionLapsing,, NextActionLapsed, CSAT, etc.
+        to: '/psa/ism/tickets/requests-list-alerts',
+        icon: <FontAwesomeIcon icon={faCircleExclamation} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Incidents',
+        to: '/psa/ism/tickets/list-incidents',
+      },
+      {
+        component: CNavItem,
+        name: 'Alerts Wizard',
+        to: '/psa/ism/tickets/requests-alerts-wizard',
+        icon: <FontAwesomeIcon icon={faCircleExclamation} className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'List Alerts',
+        // notes: SltResponse, SltResolution, NextActionLapsing,, NextActionLapsed, CSAT, etc.
+        to: '/psa/ism/tickets/requests-list-alerts',
+        icon: <FontAwesomeIcon icon={faCircleExclamation} className="nav-icon" />,
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
+    name: 'SEC [BEST] - Endpoint Security',
+  },
+  {
+    component: CNavGroup,
     name: 'BEST GravityZone [SEC]',
-    section: 'Other ITSM Integrations',
-    to: '/itsm/sec',
+    section: 'SEC [BEST] - Endpoint Security',
+    to: '/itsm/sec/best',
     icon: <FontAwesomeIcon icon={faExternalLinkSquareAlt} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Agents',
-        to: '/itsm/sec/list-agents',
+        name: 'List Agents',
+        to: '/itsm/sec/best/list-agents',
       },
       {
         component: CNavItem,
-        name: 'Policies',
-        to: '/itsm/sec/list-policies',
+        name: 'List Policies',
+        to: '/itsm/sec/best/list-policies',
       },
       {
         component: CNavItem,
         name: 'Pending Actions',
-        to: '/itsm/sec/report-pending-actions',
+        to: '/itsm/sec/best/report-pending-actions',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
       {
         component: CNavItem,
         name: 'Monthly Activity',
-        to: '/itsm/sec/report-monthly-activity',
+        to: '/itsm/sec/best/report-monthly-activity',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
       {
         component: CNavItem,
         name: 'Computers Missing',
-        to: '/itsm/sec/report-computers-missing',
+        to: '/itsm/sec/best/report-computers-missing',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
     ],
   },
   {
+    component: CNavTitle,
+    name: 'KMS [IT Glue] - Documentation',
+    icon: <FontAwesomeIcon icon={faPlusCircle} className="nav-icon" />,
+  },
+  {
     component: CNavGroup,
     name: 'IT Glue [KMS tool]',
-    section: 'Other ITSM Integrations',
-    to: '/itsm/kms',
+    section: 'KMS [IT Glue] - Documentation',
+    to: '/itsm/kms/itg',
     icon: <FontAwesomeIcon icon={faExternalLinkSquareAlt} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'All Organizations',
-        to: '/itsm/kms/list-organizations',
+        to: '/itsm/kms/itg/list-organizations',
         // capture products.services and provide link to the ITG Org Details
       },
       {
         component: CNavItem,
         name: 'Computers',
-        to: '/itsm/kms/list-computers',
+        to: '/itsm/kms/itg/list-computers',
         // likely accessible from other Menu items
       },
       {
         component: CNavItem,
         name: 'Users',
-        to: '/itsm/kms/list-users',
+        to: '/itsm/kms/itg/list-users',
       },
       {
         component: CNavItem,
         name: 'Azure Subscriptions',
-        to: '/itsm/kms/report-azure-subscriptions',
+        to: '/itsm/kms/itg/report-azure-subscriptions',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
       {
         component: CNavItem,
         name: 'Domains',
-        to: '/itsm/kms/report-domains',
+        to: '/itsm/kms/itg/report-domains',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
       {
         component: CNavItem,
         name: 'Applications',
-        to: '/itsm/kms/report-applications',
+        to: '/itsm/kms/itg/report-applications',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
       {
         component: CNavItem,
         name: 'SSL Certificates',
-        to: '/itsm/kms/report-ssl-certificates',
+        to: '/itsm/kms/itg/report-ssl-certificates',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
       {
         component: CNavItem,
         name: 'Computers Warranties',
-        to: '/itsm/kms/report-computers-warranties',
+        to: '/itsm/kms/itg/report-computers-warranties',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
       {
         component: CNavItem,
         name: 'Other Warranties',
-        to: '/itsm/kms/report-equipment-warranties',
+        to: '/itsm/kms/itg/report-equipment-warranties',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
       },
     ],
   },
   {
+    component: CNavTitle,
+    name: 'RMM [VSA] - Remote Management',
+    icon: <FontAwesomeIcon icon={faPlusCircle} className="nav-icon" />,
+  },
+  {
     component: CNavGroup,
     name: 'VSA [RMM tool]',
-    section: 'Other ITSM Integrations',
-    to: '/itsm/rmm',
+    section: 'RMM [VSA] - Remote Management',
+    to: '/itsm/rmm/vsa',
     icon: <FontAwesomeIcon icon={faExternalLinkSquareAlt} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'All Organizations',
-        to: '/itsm/rmm/list-organizations',
+        to: '/itsm/rmm/vsa/list-organizations',
       },
       {
         component: CNavItem,
         name: 'Agents',
-        to: '/itsm/rmm/list-agents',
+        to: '/itsm/rmm/vsa/list-agents',
       },
       {
         component: CNavItem,
         name: 'Licenses',
-        to: '/itsm/rmm/list-licenses',
+        to: '/itsm/rmm/vsa/list-licenses',
       },
       {
         component: CNavItem,
         name: 'Policies',
-        to: '/itsm/rmm/list-policies',
+        to: '/itsm/rmm/vsa/list-policies',
       },
       {
         component: CNavItem,
         name: 'Rpt - All Organizations.NamePsaMismatch.DuplicateAlias.NoOrgType',
-        to: '/itsm/rmm/report-organizations-issues',
+        to: '/itsm/rmm/vsa/report-organizations-issues',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
         // capture 'no OrgType' or 'OrgType does not match ISM' or 'Org missing'
       },
       {
         component: CNavItem,
         name: 'Rpt - Computers.HostVsMachineName.OrgMismatch.DuplicateSN.DuplicateName.NoWarrantyInfo.NoAuditRun.ActiveAlerts.PolicyNoRun.SMNoRun',
-        to: '/itsm/rmm/report-computers-remediations',
+        to: '/itsm/rmm/vsa/report-computers-remediations',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
         // capture 'no OrgType', 'no serialnumber', 'no ComputerType', etc.
       },
       {
         component: CNavItem,
         name: 'Rpt - Servers.NameFormat.OrgMismatch.DuplicateSN.DuplicateName.NoWarrantyInfo.NoAuditRun.ActiveAlerts.PolicyNoRun.SMNoRun',
-        to: '/itsm/rmm/report-servers-remediations',
+        to: '/itsm/rmm/vsa/report-servers-remediations',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
         // capture 'no OrgType', 'no serialnumber', 'no ComputerType', etc.
       },
       {
         component: CNavItem,
         name: 'Audits Remediations',
-        to: '/itsm/rmm/report-audits-remediations',
+        to: '/itsm/rmm/vsa/report-audits-remediations',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
         // list of machines which are not scheduled for audit
       },
       {
         component: CNavItem,
         name: 'Software Management R.',
-        to: '/itsm/rmm/report-softwaremanagement-remediations',
+        to: '/itsm/rmm/vsa/report-softwaremanagement-remediations',
         icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
         // find 'no profile for Scan/Deploy' or 'scan/deploy failed' or
       },
@@ -904,58 +1053,58 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'VSA Actions',
-    section: 'Other ITSM Integrations',
-    to: '/itsm/rmm',
+    section: 'RMM [VSA] - Remote Management',
+    to: '/itsm/rmm/vsa',
     icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'Agent Install (Intune)',
-        to: '/itsm/rmm/action-agent-install',
+        to: '/itsm/rmm/vsa/action-agent-install',
       },
       {
         component: CNavItem,
         name: 'Agent Uninstall (Offboarding)',
-        to: '/itsm/rmm/action-agent-uninstall',
+        to: '/itsm/rmm/vsa/action-agent-uninstall',
         // run procedure to uninstall BEST, remove ITS Startup items, reset Windows Update settings, then uninstall Kaseya agent
       },
       {
         component: CNavItem,
         name: 'Update Organizations',
-        to: '/itsm/rmm/action-organizations-update',
+        to: '/itsm/rmm/vsa/action-organizations-update',
         // should add firstrun for new 'Support Customer' applications
       },
       {
         component: CNavItem,
         name: 'Run Audits',
-        to: '/itsm/rmm/action-audits-run',
+        to: '/itsm/rmm/vsa/action-audits-run',
         // needs selectors for Latest Audit, System Audit and Baseline Audit
       },
       {
         component: CNavItem,
         name: 'Add/Remove Monitoring',
-        to: '/itsm/rmm/action-monitoring-addremove',
+        to: '/itsm/rmm/vsa/action-monitoring-addremove',
       },
       {
         component: CNavItem,
         name: 'Add/Remove Policy',
-        to: '/itsm/rmm/action-policy-addremove',
+        to: '/itsm/rmm/vsa/action-policy-addremove',
       },
       {
         component: CNavItem,
         name: 'Reapply Policies',
-        to: '/itsm/rmm/action-policy-reapply',
+        to: '/itsm/rmm/vsa/action-policy-reapply',
         // clear Overrides, then Reapply Policies to selected machine(s)
       },
       {
         component: CNavItem,
         name: 'Software Manangement Scan',
-        to: '/itsm/rmm/action-softwaremanagement-scan',
+        to: '/itsm/rmm/vsa/action-softwaremanagement-scan',
       },
       {
         component: CNavItem,
         name: 'Software Manangement Deploy',
-        to: '/itsm/rmm/action-softwaremanagement-deploy',
+        to: '/itsm/rmm/vsa/action-softwaremanagement-deploy',
         // include options for restart/pause/ask
       },
     ],
