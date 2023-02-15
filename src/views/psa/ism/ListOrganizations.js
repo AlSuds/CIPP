@@ -9,7 +9,6 @@ import {
   faEllipsisV,
   faExclamationTriangle,
   faPlusCircle,
-  faCheckCircle,
   faRadiationCircle,
   faSpinner,
   faPlayCircle,
