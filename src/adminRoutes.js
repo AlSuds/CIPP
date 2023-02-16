@@ -21,9 +21,8 @@ const adminRoutes = [
   { path: '/tenant/administration/gdap-status', name: 'GDAP Status', component: GDAPStatus },
   { path: '/tenant/standards/apply-standard', name: 'Apply Standard', component: ApplyStandard },
   { path: '/psa/ism/orgs/list-organizations', name: 'List Organizations', component: Psa_Ism_ListOrganizations },
-  { path: '/psa/ism/endpoints/list-computers', name: 'List Computers', component: Psa_Ism_ListComputers },
+  { path: '/psa/ism/orgs/list-computers', name: 'List Computers', component: Psa_Ism_ListComputers },
   { path: '/psa/ism/endpoints/list-servers', name: 'List Servers', component: Psa_Ism_ListServers },
-// { path: '/psa/endpoints/list-byods', name: 'List BYODs', component: Psa_Ism_List_Byods },
 ]
 
 export default adminRoutes
